@@ -35,4 +35,4 @@ This repository is part of my learning process where I:
 
 A hands-on project exploring Linux networking concepts such as namespaces, virtual networks and process isolation.
 
-More details → More details → [linux-network-namespace-simulation](linux-network-namespace-simulation/)
+More details → [linux-network-namespace-simulation](linux-network-namespace-simulation/)
