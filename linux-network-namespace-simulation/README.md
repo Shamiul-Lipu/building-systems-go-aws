@@ -50,6 +50,8 @@ sudo ./cleanup.sh
 
 ## Network Topology
 
+![Network Topology](linux-network-namespace-simulation/ns-diagram.png)
+
 ```
                     HOST MACHINE
   ┌──────────────────────────────────────────────────────┐
