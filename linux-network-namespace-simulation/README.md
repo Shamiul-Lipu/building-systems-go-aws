@@ -50,7 +50,7 @@ sudo ./cleanup.sh
 
 ## Network Topology
 
-![Network Topology](linux-network-namespace-simulation/ns-diagram.png)
+![Network Topology](https://raw.githubusercontent.com/Shamiul-Lipu/building-systems-go-aws/main/linux-network-namespace-simulation/ns-diagram.png)
 
 ```
                     HOST MACHINE
