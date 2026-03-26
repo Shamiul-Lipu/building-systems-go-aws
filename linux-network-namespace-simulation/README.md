@@ -31,7 +31,7 @@ The three scripts handle the full lifecycle:
 git clone https://github.com/Shamiul-Lipu/building-systems-go-aws
 
 # Navigate into the project directory
-cd linux-Network-Namespace-Simulation
+cd linux-network-namespace-simulation
 
 # Make scripts executable
 chmod +x setup.sh monitor.sh cleanup.sh
