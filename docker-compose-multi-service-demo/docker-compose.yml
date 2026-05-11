@@ -1,0 +1,64 @@
+# ─────────────────────────────────────────────
+#  Named volume so PostgreSQL data survives
+#  docker compose down  (Challenge 3)
+# ─────────────────────────────────────────────
+volumes:
+  postgres_data:
+
+services:
+  # ──────────────────────────────────────────
+  #  DATABASE  (Challenge 2, 3, 4)
+  # ──────────────────────────────────────────
+  database:
+    image: postgres:15
+    restart: unless-stopped # Challenge 6 – survives Docker daemon restart
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppassword
+      POSTGRES_DB: appdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Challenge 3 – persistent storage
+    healthcheck: # Challenge 4 – wait until DB is ready
+      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  # ──────────────────────────────────────────
+  #  REDIS  (Challenge 5)
+  # ──────────────────────────────────────────
+  redis:
+    image: redis:7
+    restart: unless-stopped # Challenge 6
+    healthcheck: # Challenge 5 – wait until Redis answers PING
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+  # ──────────────────────────────────────────
+  #  BACKEND  (Challenge 1, 4, 5)
+  # ──────────────────────────────────────────
+  backend:
+    image: nginx:latest
+    restart: unless-stopped # Challenge 6
+    ports:
+      - "8080:80"
+    depends_on:
+      database: # Challenge 4 – wait for DB health check to pass
+        condition: service_healthy
+      redis: # Challenge 5 – wait for Redis health check to pass
+        condition: service_healthy
+
+  # ──────────────────────────────────────────
+  #  FRONTEND  (Challenge 1)
+  # ──────────────────────────────────────────
+  frontend:
+    image: nginx:latest
+    restart: unless-stopped # Challenge 6
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend # Challenge 1 – start only after backend

@@ -2,20 +2,20 @@
 
 This repository documents my hands-on journey of building backend systems using Go and AWS. It includes practical projects, architecture experiments, and learning notes focused on real-world system design.
 
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 - Go (Golang)
 - AWS Cloud Services
 - Linux (network namespaces, system-level concepts)
 
-## 🚀 Contents
+### 🚀 Contents
 
 - 📦 Go backend services
 - ☁️ AWS integrations (Lambda, EC2, S3, API Gateway)
 - 🧠 System design and architecture patterns
 - 🧪 Experimental and learning projects
 
-## 🎯 Purpose
+### 🎯 Purpose
 
 This repository is part of my learning process where I:
 
@@ -23,7 +23,7 @@ This repository is part of my learning process where I:
 - Document concepts in a practical way
 - Experiment with scalable architectures
 
-## 📌 Future Improvements
+### 📌 Future Improvements
 
 - Add Docker-based environments
 - Deploy projects to AWS
@@ -36,3 +36,9 @@ This repository is part of my learning process where I:
 A hands-on project exploring Linux networking concepts such as namespaces, virtual networks and process isolation.
 
 More details → [linux-network-namespace-simulation](linux-network-namespace-simulation/)
+
+### 🔹 docker-compose-multi-service-demo
+
+A hands-on project exploring Docker Compose concepts such as multi-service orchestration, container dependencies, persistent storage, health checks, and automatic container recovery.
+
+More details → [docker-compose-multi-service-demo](docker-compose-multi-service-demo/)
